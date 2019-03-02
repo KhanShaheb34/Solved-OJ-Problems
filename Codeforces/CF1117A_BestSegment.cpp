@@ -13,7 +13,7 @@ int main() {
     for(int i=0; i<n; i++) {
         if(x[i]==maxx) {
             int tempAns = 0;
-            while(x[i]==maxx){
+            while(x[i]==maxx && i<n){
                 tempAns++;
                 i++;
             }
