@@ -5,8 +5,8 @@
 * @problem_name Everyone is a Winner!
 * @author       KhanShaheb
 * @Language     C++
-* @status       
-* @time         
+* @status       Accepted
+* @time         265 ms
 */
 
 #include<bits/stdc++.h>
