@@ -5,8 +5,8 @@
 * @problem_name Sweet Problem
 * @author       KhanShaheb
 * @Language     C++
-* @status       
-* @time         
+* @status       Accepted
+* @time         15 ms
 */
 
 #include<bits/stdc++.h>
