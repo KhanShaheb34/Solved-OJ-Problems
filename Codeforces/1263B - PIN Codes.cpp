@@ -5,8 +5,8 @@
 * @problem_name PIN Codes
 * @author       KhanShaheb
 * @Language     C++
-* @status       
-* @time         
+* @status       Accepted
+* @time         31 ms
 */
 
 #include<bits/stdc++.h>
