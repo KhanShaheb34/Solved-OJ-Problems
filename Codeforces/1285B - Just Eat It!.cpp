@@ -5,8 +5,8 @@
 * @problem_name Just Eat It!
 * @author       KhanShaheb
 * @Language     C++
-* @status       
-* @time         
+* @status       Accepted
+* @time         62ms
 */
 
 #include<bits/stdc++.h>
