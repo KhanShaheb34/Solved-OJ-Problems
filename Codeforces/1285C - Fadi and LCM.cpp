@@ -5,8 +5,8 @@
 * @problem_name Fadi and LCM
 * @author       KhanShaheb
 * @Language     C++
-* @status       
-* @time         
+* @status       Accepted
+* @time         31ms
 */
 
 #include<bits/stdc++.h>
