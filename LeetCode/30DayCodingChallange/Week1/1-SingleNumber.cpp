@@ -1,14 +1,9 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        map<int, bool> vis;
-        for(auto n:nums) {
-            if(vis[n]) vis[n] = false;
-            else vis[n] = true;
-        }
-        for(auto n:nums) {
-            if(vis[n]) return n;
-        }
-        return -1;
+        ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+        int x = 0;
+        for(auto n : nums) x ^= n;
+        return x;
     }
 };
