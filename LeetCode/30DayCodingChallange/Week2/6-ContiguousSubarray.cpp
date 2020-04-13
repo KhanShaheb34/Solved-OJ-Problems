@@ -3,14 +3,12 @@ public:
     int findMaxLength(vector<int>& nums) {
         ios::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
        
-        unordered_map<int, vector<int> > rep;
+        unordered_map<int, int> rep;
+        rep[0] = -1;
         int maxlen = 0, n = nums.size(), cp = 0;
-        rep[0].push_back(-1);
         for(int i=0; i<n; i++) {
-            if(nums[i]) cp++;
-            else cp--;
-            rep[cp].push_back(i);
-            maxlen = max(maxlen, i-rep[cp][0]);
+            nums[i] ? cp++ : cp--;
+            rep.find(cp) == rep.end() ? rep[cp] = i : maxlen = max(maxlen, i-rep[cp]);
         }
         return maxlen;
     }
