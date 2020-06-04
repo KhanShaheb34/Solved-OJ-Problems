@@ -1,30 +1,41 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
-#define ull unsigned long long
 #define FastIO ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 
 void solve(ll cs) {
-  ull n;
-  cin >> n;
-  ull ans = 0, temp = 2;
+  ll a, b, s = 0;
+  cin >> a >> b;
 
-  if (n % 2) ans += (n / 2) + 1;
-  else ans += (n / 2);
+  if (b > a) {
+    while (b > a) {
+      if (a == b) break;
+      else if (a << 3 <= b) a <<= 3;
+      else if (a << 2 <= b) a <<= 2;
+      else if (a << 1 <= b) a <<= 1;
+      else {
+        s = -1;
+        break;
+      }
 
-  ull step = 2;
+      s++;
+    }
+  } else {
+    while (b < a) {
+      if (a == b) break;
+      else if (a % 8 == 0 && a >> 3 >= b) a >>= 3;
+      else if (a % 4 == 0 && a >> 2 >= b) a >>= 2;
+      else if (a % 2 == 0 && a >> 1 >= b) a >>= 1;
+      else {
+        s = -1;
+        break;
+      }
 
-  for (ull i = 2; i <= n; i *= 2) {
-    ans += step;
-    step++;
+      s++;
+    }
   }
 
-  for (ull i = 4; i <= n; i *= 2) {
-    ans += (((n - (i / 2)) / (i)) * temp);
-    temp++;
-  }
-
-  cout << ans << endl;
+  cout << s << endl;
 }
 
 int main() {
