@@ -2,6 +2,7 @@
 
 - [Power](#power)
 - [Prime Facts](#prime-facts)
+- [Sieve](#sieve)
 
 ### Power
 ```cpp
