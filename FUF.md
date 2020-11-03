@@ -34,3 +34,27 @@ map<ll, ll> primeFact(ll n) {
     return facts;
 }
 ```
+
+### Sieve
+```cpp
+const ll MAX_SIZE = 2000000;
+vector<ll> isprime(MAX_SIZE, true);
+vector<ll> prime;
+vector<ll> SPF(MAX_SIZE);
+
+void manipulated_seive(int N) {
+    isprime[0] = isprime[1] = false;
+
+    for (ll int i = 2; i < N; i++) {
+        if (isprime[i]) {
+            prime.push_back(i);
+            SPF[i] = i;
+        }
+
+        for (ll int j = 0; j < (int)prime.size() && i * prime[j] < N && prime[j] <= SPF[i]; j++) {
+            isprime[i * prime[j]] = false;
+            SPF[i * prime[j]] = prime[j];
+        }
+    }
+}
+```
