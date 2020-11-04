@@ -2,7 +2,10 @@
 
 - [Power](#power)
 - [Prime Facts](#prime-facts)
+  * [Without Sieve](#without-sieve)
+  * [With Sieve](#with-sieve)
 - [Sieve](#sieve)
+
 
 ### Power
 ```cpp
@@ -16,6 +19,7 @@ ll power(ll m, ll n) {
 ```
 
 ### Prime Facts
+#### Without Sieve
 ```cpp
 map<ll, ll> primeFact(ll n) {
     map<ll, ll> facts;
@@ -36,25 +40,44 @@ map<ll, ll> primeFact(ll n) {
 }
 ```
 
+#### With Sieve
+```cpp
+map<ll, ll> primeFact(ll n) {
+    map<ll, ll> facts;
+
+    for (auto p : primes) {
+        if (p * p > n) break;
+
+        while (n % p == 0) {
+            facts[p]++;
+            n /= p;
+        }
+    }
+
+    if (n >= 2) facts[n]++;
+    return facts;
+}
+```
+
 ### Sieve
 ```cpp
-const ll MAX_SIZE = 2000000;
+const ll MAX_SIZE = 1000010;
 vector<ll> isprime(MAX_SIZE, true);
-vector<ll> prime;
+vector<ll> primes;
 vector<ll> SPF(MAX_SIZE);
 
-void manipulated_seive(int N) {
+void seive(int N) {
     isprime[0] = isprime[1] = false;
 
     for (ll int i = 2; i < N; i++) {
         if (isprime[i]) {
-            prime.push_back(i);
+            primes.push_back(i);
             SPF[i] = i;
         }
 
-        for (ll int j = 0; j < (int)prime.size() && i * prime[j] < N && prime[j] <= SPF[i]; j++) {
-            isprime[i * prime[j]] = false;
-            SPF[i * prime[j]] = prime[j];
+        for (ll int j = 0; j < (int)primes.size() && i * primes[j] < N && primes[j] <= SPF[i]; j++) {
+            isprime[i * primes[j]] = false;
+            SPF[i * primes[j]] = primes[j];
         }
     }
 }
